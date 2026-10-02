@@ -36,34 +36,6 @@ function initCountdown() {
     setInterval(updateCountdown, 1000);
 }
 
-function initMap() {
-    const mapContainer = document.getElementById('map');
-    if (!mapContainer) return;
-
-    // Coordinates for Fairy Garden Greenery, Cairo, Egypt.
-    const venueLat = 29.9636844;
-    const venueLng = 31.0415557;
-
-    const map = L.map('map', {
-        dragging: false,
-        touchZoom: false,
-        doubleClickZoom: false,
-        scrollWheelZoom: false,
-        boxZoom: false,
-        keyboard: false,
-        zoomControl: false,
-    }).setView([venueLat, venueLng], 15);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 19,
-    }).addTo(map);
-
-    L.marker([venueLat, venueLng])
-        .addTo(map)
-        .bindPopup('<b>Fairy Garden Greenery</b><br>Cairo, Egypt')
-        .openPopup();
-}
 
 let splashOpened = false;
 let bgMusic = null;
@@ -172,7 +144,6 @@ function initFlowers() {
 
 function init() {
     initCountdown();
-    initMap();
     initSplash();
     initReveal();
     initFlowers();
