@@ -138,24 +138,25 @@ function initFlowers() {
     if (!container) return;
 
     const colors = [
-        'rgba(168, 196, 155, 0.4)',
-        'rgba(122, 155, 106, 0.3)',
-        'rgba(196, 214, 184, 0.35)',
-        'rgba(107, 142, 94, 0.25)',
-        'rgba(249, 241, 200, 0.4)',
-        'rgba(232, 213, 195, 0.35)',
+        'rgba(168, 196, 155, 0.7)',
+        'rgba(122, 155, 106, 0.6)',
+        'rgba(196, 214, 184, 0.65)',
+        'rgba(107, 142, 94, 0.5)',
+        'rgba(249, 241, 200, 0.7)',
+        'rgba(232, 213, 195, 0.65)',
+        'rgba(61, 90, 58, 0.3)',
     ];
 
-    const count = 25;
+    const count = 45;
 
     for (let i = 0; i < count; i++) {
         const petal = document.createElement('div');
         petal.classList.add('petal');
 
-        const size = Math.random() * 12 + 6;
+        const size = Math.random() * 18 + 8;
         const left = Math.random() * 100;
-        const duration = Math.random() * 15 + 15;
-        const delay = Math.random() * 20;
+        const duration = Math.random() * 18 + 12;
+        const delay = Math.random() * 15;
         const color = colors[Math.floor(Math.random() * colors.length)];
 
         petal.style.width = size + 'px';
