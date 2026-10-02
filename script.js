@@ -77,12 +77,22 @@ function openInvitation() {
         splash.classList.add('hidden');
     }
 
-    try {
-        bgMusic = new Audio('song.mp3');
-        bgMusic.loop = true;
-        bgMusic.volume = 1;
-        bgMusic.play().catch(function () {});
-    } catch (e) {}
+    bgMusic = new Audio();
+    bgMusic.src = 'song.mp3';
+    bgMusic.loop = true;
+    bgMusic.volume = 1;
+    bgMusic.preload = 'auto';
+
+    var playPromise = bgMusic.play();
+    if (playPromise !== undefined) {
+        playPromise.then(function () {
+            console.log('Audio playing');
+        }).catch(function (err) {
+            console.log('Audio play failed:', err);
+            // Fallback: try again after a short delay
+            setTimeout(function () { bgMusic.play(); }, 300);
+        });
+    }
 
     const embed = document.getElementById('music-embed');
     if (embed) {
