@@ -120,11 +120,48 @@ function initReveal() {
     reveals.forEach((el) => observer.observe(el));
 }
 
+function initFlowers() {
+    const container = document.getElementById('flowers-bg');
+    if (!container) return;
+
+    const colors = [
+        'rgba(168, 196, 155, 0.4)',
+        'rgba(122, 155, 106, 0.3)',
+        'rgba(196, 214, 184, 0.35)',
+        'rgba(107, 142, 94, 0.25)',
+        'rgba(249, 241, 200, 0.4)',
+        'rgba(232, 213, 195, 0.35)',
+    ];
+
+    const count = 25;
+
+    for (let i = 0; i < count; i++) {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+
+        const size = Math.random() * 12 + 6;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 15 + 15;
+        const delay = Math.random() * 20;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        petal.style.width = size + 'px';
+        petal.style.height = size + 'px';
+        petal.style.left = left + '%';
+        petal.style.backgroundColor = color;
+        petal.style.animationDuration = duration + 's';
+        petal.style.animationDelay = delay + 's';
+
+        container.appendChild(petal);
+    }
+}
+
 function init() {
     initCountdown();
     initMap();
     initSplash();
     initReveal();
+    initFlowers();
 }
 
 if (document.readyState === 'loading') {
