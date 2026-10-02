@@ -66,9 +66,7 @@ function initMap() {
 }
 
 let splashOpened = false;
-const bgMusic = new Audio('song.mp3');
-bgMusic.loop = true;
-bgMusic.volume = 1;
+let bgMusic = null;
 
 function openInvitation() {
     if (splashOpened) return;
@@ -79,7 +77,12 @@ function openInvitation() {
         splash.classList.add('hidden');
     }
 
-    bgMusic.play();
+    try {
+        bgMusic = new Audio('song.mp3');
+        bgMusic.loop = true;
+        bgMusic.volume = 1;
+        bgMusic.play().catch(function () {});
+    } catch (e) {}
 
     const embed = document.getElementById('music-embed');
     if (embed) {
