@@ -272,12 +272,14 @@ body {
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: var(--forest);
+    color: var(--forest-dark);
     margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8);
 }
 
 .venue-name span {
-    color: var(--sage);
+    color: var(--forest);
     font-style: italic;
     text-transform: lowercase;
     letter-spacing: 1px;
@@ -287,7 +289,9 @@ body {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 4px;
-    color: var(--muted);
+    color: var(--charcoal);
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8);
 }
 
 /* Sections */
